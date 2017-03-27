@@ -69,15 +69,15 @@ class LoginSystem
 
     /**
      * @param $username
-     * Updates the last active time for given user
+     * Updates the last login time for given user
      * Does not require authentication and should only be used
      * when the information is already authenticated
      */
-    private function updateLastActive($username)
+    private function updateLastLogin($username)
     {
         $currentTime = time();
-        $state = $this->pdo->prepare("UPDATE users SET last_active = :active WHERE username = :user");
-        $state->bindParam(':active', $currentTime);
+        $state = $this->pdo->prepare("UPDATE users SET last_login = :login WHERE username = :user");
+        $state->bindParam(':login', $currentTime);
         $state->bindParam(':user', $username);
         if ($state->execute()) {
             $this->response(200, 'Entry updated successfully', 'Entry updated successfully', null);
@@ -88,7 +88,7 @@ class LoginSystem
 
     public function onLoginSuccess($username)
     {
-        $this->updateLastActive($username);
+        $this->updateLastLogin($username);
     }
 
     public function onLoginFailure($username)
