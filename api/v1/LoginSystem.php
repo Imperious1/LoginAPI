@@ -7,10 +7,10 @@
  * Time: 6:17 PM
  */
 
-define('API_MASTER_KEY', '9D427F843DA5BAD1438B1D98594739CF1F8814DE4555CBD46C7C64345B');
+define('API_MASTER_KEY', 'key');
 define('HOST_NAME', 'localhost');
 define('USER_NAME', 'root');
-define('DB_PASSWORD', 'TempPassword107');
+define('DB_PASSWORD', 'pass');
 define('DB_NAME', 'experiment119c');
 include 'models/ResponseModel.php';
 
